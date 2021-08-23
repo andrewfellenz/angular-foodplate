@@ -1,0 +1,28 @@
+footer {
+  border-top: black 3px solid;
+  position: fixed;
+  bottom: 0px;
+  align-items: center;
+}
+
+p,
+img {
+  margin-left: 12px;
+}
+
+small {
+  margin-right: 12px;
+}
+
+.needsUpdate {
+  border: 1px black solid;
+  background-color: white;
+  color: red;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.needsUpdate::after {
+  content: " Update Needed!";
+}
