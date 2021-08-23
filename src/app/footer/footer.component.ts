@@ -13,6 +13,11 @@ export class FooterComponent implements OnInit {
   logoAlt: string = "Foodplate Logo";
   needsUpdate: boolean = true;
 
+
+  moreInfo() {
+    alert("For more info see choosemyplate.gov.");
+  }
+
   constructor() { }
 
   ngOnInit(): void {
