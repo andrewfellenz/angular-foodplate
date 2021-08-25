@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 
 // separate angular services from services we made
 import { User } from 'src/app/models/User';
+import { UserStatusService } from './user-status.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,12 @@ export class UserService {
     false, vegMet: false, proteinMet: false, grainMet: false}, false, 
     'kevin@kevinruse.com')
 
-  getUser() {
+  getUser(): User {
     return this.user;
   }
 
-  constructor() { }
+  constructor(@Optional() private userStatus: UserStatusService) { 
+    this.userStatus.getRegisterStatus(this.user);
+    this.userStatus.getUserStatus(this.user);
+  }
 }
