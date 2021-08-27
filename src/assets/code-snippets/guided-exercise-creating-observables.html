@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Guided Exercise: Creating Observables</title>
+    <link rel="icon" type="image/png" href="../images/favicon.ico" />
+    <style>
+      html {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      li {
+        line-height: 1.75em;
+      }
+    </style>
+    <script src="https://unpkg.com/@reactivex/rxjs@6.0.0/dist/global/rxjs.umd.js"></script>
+  </head>
+  <body>
+    <h1>The Subject Example</h1>
+    <ul>
+      <li>
+        The dataSource sequence will not begin until there is a subscription on
+        the subject.
+      </li>
+      <li>
+        After the dataSource is complete, subscribers will no longer be actively
+        subscribed.
+      </li>
+      <li>
+        The map() operator will pass each dataSource value through a
+        transformation function and return new output. In this code, the map
+        function takes each data source and returns it in a string: interval
+        message #
+      </li>
+      <li>
+        The take() operator is a filtering operator the emits only the first
+        five values emitted by the dataSource.
+      </li>
+    </ul>
+
+    <!--
+<script>
+    // the create method
+      const yo = rxjs.Observable.create(function(observer) {
+	  const fn = setInterval(() => {
+		observer.next(`Hello from the observable`);}, 1000);
+      });
+      console.log(`observable's subscribe: `);
+      yo.subscribe(data => console.log(data));
+      const subscribe = yo.subscribe(val => console.log(`this is from the subscriber: \n ${val}`));
+</script>-->
+
+    <!--
+<script>
+        // the of creation operator
+        rxjs.of(`Hello World`)
+            .subscribe(result => console.log(result));
+</script>
+-->
+
+    <!--<script>
+        // the from creation operator
+        const src = rxjs.from([1,2,3]);
+              src.subscribe(x => {
+                    console.log(x * 2);
+                    },
+                    error => console.error(error),
+                    () => console.log('done')
+            );
+</script>-->
+
+    <script>
+      // the fromEvent creation operator
+      rxjs.fromEvent(document, "mousemove").subscribe(
+        (event) => console.log(event.clientX, event.clientY),
+        (error) => console.log(error),
+        () => console.log("done")
+      );
+    </script>
+  </body>
+</html>
