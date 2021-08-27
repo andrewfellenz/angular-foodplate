@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
@@ -16,7 +17,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ExercisesComponent } from "./exercises/exercises.component";
 import { FarmersMarketComponent } from "./farmers-market/farmers-market.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { TodaysGoalComponent } from './todays-goal/todays-goal.component';
+import { TodaysGoalComponent } from "./todays-goal/todays-goal.component";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { TodaysGoalComponent } from './todays-goal/todays-goal.component';
     FoodGroupsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

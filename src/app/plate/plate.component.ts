@@ -1,12 +1,13 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { User } from "../models/User";
+import { UserService } from "../services/user.service";
 @Component({
   selector: "fp-plate",
   templateUrl: "./plate.component.html",
   styleUrls: ["./plate.component.scss"],
 })
 export class PlateComponent implements OnInit {
-  @Input() user: User;
+  currentUser: User;
 
   plateImgPath: string = "assets/images/plateImages/";
   fruitEmpty: string = `${this.plateImgPath}fruit-empty.png`;
@@ -18,7 +19,9 @@ export class PlateComponent implements OnInit {
   proteinFull: string = `${this.plateImgPath}protein-full.jpg`;
   vegFull: string = `${this.plateImgPath}veg-full.jpg`;
 
-  constructor() {}
+  constructor(private userService: UserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userService.currentUser.subscribe((user) => (this.currentUser = user));
+  }
 }

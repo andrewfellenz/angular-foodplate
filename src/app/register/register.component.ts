@@ -39,11 +39,11 @@ export class RegisterComponent implements OnInit {
         ],
         gender: [null, [Validators.required]],
         ageGroup: [null, [Validators.required]],
-      },
-      { updateOn: "submit" }
+      }
+      // { updateOn: "blur" }
       // blur is what happens when a field has focus and then focus leaves
       // this also makes validation faster
-      // { updateOn: "blur" }
+      // { updateOn: "submit" }
     );
   }
 
