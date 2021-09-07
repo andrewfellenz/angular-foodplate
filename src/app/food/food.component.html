@@ -1,0 +1,23 @@
+<section *ngIf="isLoading && !errorMessage" class="loadingMessage">
+  Wait. Retrieving nutrition data...
+</section>
+
+<section *ngIf="foodList">
+  <select
+    name="foods"
+    id="foods"
+    class="selectList"
+    size="10"
+    (change)="displayFoods($event.target.value)"
+  >
+    <option
+      *ngFor="let item of foodList"
+      value=""
+      value=""
+      (click)="showNutrients(item)"
+    >
+      {{ item.description }}
+    </option>
+  </select>
+</section>
+<section *ngIf="errorMessage" class="errorMessage"></section>
